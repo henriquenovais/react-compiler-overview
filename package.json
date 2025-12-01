@@ -5,5 +5,20 @@
   "repository": "https://github.com/henriquenovais/react-compiler-overview.git",
   "author": "henriquennoliveira <henriquennoliveira@gmail.com>",
   "license": "MIT",
-  "private": false
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:js": "yarn workspace javascript dev",
+    "dev:ts": "yarn workspace typescript dev",
+    "build:js": "yarn workspace javascript build",
+    "build:ts": "yarn workspace typescript build",
+    "lint:js": "yarn workspace javascript lint",
+    "lint:ts": "yarn workspace typescript lint",
+    "install:all": "yarn install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
 }
