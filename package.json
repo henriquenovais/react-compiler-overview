@@ -1,0 +1,9 @@
+{
+  "name": "react-compiler-overview",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/henriquenovais/react-compiler-overview.git",
+  "author": "henriquennoliveira <henriquennoliveira@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
