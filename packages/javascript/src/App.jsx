@@ -1,45 +1,11 @@
 import { useState, useMemo } from 'react'
 import './App.css'
-
-// Expensive calculation function - simulates heavy computation
-function expensiveCalculation(n) {
-  console.log('Computing expensive calculation...')
-  let result = 0
-  for (let i = 0; i < n * 1000000; i++) {
-    result += i
-  }
-  return result
-}
-
-// Component that uses useMemo
-function MemoizedComponent({ number }) {
-  const memoizedValue = useMemo(() => {
-    return expensiveCalculation(number)
-  }, [number])
-
-  return (
-    <div className="demo-box memoized">
-      <h3>With useMemo</h3>
-      <p className="value">Result: {memoizedValue.toLocaleString()}</p>
-      <p className="note">✅ Only recalculates when number changes</p>
-    </div>
-  )
-}
-
-// Component that doesn't use useMemo
-function NonMemoizedComponent({ number }) {
-  const value = expensiveCalculation(number)
-
-  return (
-    <div className="demo-box non-memoized">
-      <h3>Without useMemo</h3>
-      <p className="value">Result: {value.toLocaleString()}</p>
-      <p className="note">❌ Recalculates on every render</p>
-    </div>
-  )
-}
+import MemoizedComponent from './components/MemoizedComponent'
+import NonMemoizedComponent from './components/NonMemoizedComponent'
 
 function App() {
+  "use no memo";
+  
   const [number, setNumber] = useState(5)
   const [counter, setCounter] = useState(0)
 
@@ -75,35 +41,11 @@ function App() {
             <button onClick={() => setCounter(c => c + 1)}>+</button>
           </div>
         </div>
-
-        <div className="info">
-          <p>💡 <strong>Tip:</strong> Open the browser console to see when calculations run!</p>
-          <p>When you change the counter, only the non-memoized version recalculates.</p>
-        </div>
       </div>
 
       <div className="demo-container">
-        <MemoizedComponent number={number} />
-        <NonMemoizedComponent number={number} />
-      </div>
-
-      <div className="explanation">
-        <h2>How useMemo Works</h2>
-        <ul>
-          <li>
-            <strong>useMemo</strong> memoizes the result of an expensive calculation
-          </li>
-          <li>
-            It only recalculates when its dependencies (in this case, <code>number</code>) change
-          </li>
-          <li>
-            When you click the counter buttons, the component re-renders, but the memoized value
-            doesn't recalculate because <code>number</code> hasn't changed
-          </li>
-          <li>
-            The non-memoized version recalculates on <em>every</em> render, even when it's not necessary
-          </li>
-        </ul>
+        <MemoizedComponent number={number} counter={counter} />
+        <NonMemoizedComponent number={number} counter={counter} />
       </div>
     </div>
   )
