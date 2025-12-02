@@ -1,8 +1,9 @@
 // Expensive calculation function - simulates heavy computation
-function expensiveCalculation(n, v) {
+function expensiveCalculation(n, name) {
     console.log('Computing expensive calculation...')
+    console.log(`${name}...`)
     let result = 0
-    for (let i = 0; i < (n+v) * 1000000; i++) {
+    for (let i = 0; i < n * 1000000; i++) {
       result += i
     }
     return result
