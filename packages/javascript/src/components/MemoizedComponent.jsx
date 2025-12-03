@@ -1,22 +1,13 @@
-import { useMemo, useRef } from 'react'
+import { useMemo } from 'react'
 import expensiveCalculation from '../utils'
 
 function MemoizedComponent({ number, counter }) {
-    const numberOfInvocationsRef = useRef(0);
-
-    const triggerExpensiveCalculation = () => {
-        numberOfInvocationsRef.current++;
-        return expensiveCalculation(number, "MemoizedComponent");
-    }
-
     // const memoizedValue = useMemo(() => {
     //   numberOfInvocationsRef.current++;
     //   return triggerExpensiveCalculation();
     // }, [number])
 
-    const memoizedValue = triggerExpensiveCalculation()
-
-    console.log("MemoizedComponent", `Total expensive calculations: ${numberOfInvocationsRef.current.toLocaleString()}`)
+    const memoizedValue = expensiveCalculation(number, "MemoizedComponent")
 
     return (
         <div className="demo-box memoized">

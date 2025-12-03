@@ -1,17 +1,8 @@
-import { useRef } from 'react';
 import expensiveCalculation from '../utils'
 
 function NonMemoizedComponent({ number, counter }) {
-  const numberOfInvocationsRef = useRef(0);
 
-  const triggerExpensiveCalculation = () => {
-    numberOfInvocationsRef.current++;
-    return expensiveCalculation(number, "NonMemoizedComponent");
-  }
-
-  const value = triggerExpensiveCalculation()
-  
-  console.log("NonMemoizedComponent", `Total expensive calculations: ${numberOfInvocationsRef.current.toLocaleString()}`)
+  const value = expensiveCalculation(number, "NonMemoizedComponent");
 
   return (
     <div className="demo-box non-memoized">
