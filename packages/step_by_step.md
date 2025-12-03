@@ -1,5 +1,9 @@
 # Overview step by step
 
+## Openning slide
+* React Compiler
+    * New build-time tool that performs automatic optimization
+
 ## Send this to phone before presentation enable airplane mode
 
 > Send feedback form on the cat
