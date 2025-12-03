@@ -66,10 +66,12 @@
     * Easy to control which components use the Compiler
     * Performance gain at application start up and use
     * Code looks easier to read
+    * Code reviews easier
 * CONS
     * Bigger build times
         * How big? We don't know for sure.
     * Must remove previous non-strategic useMemo invocations
+        * Vibe coding (e.g. agentic AI for coding)
 
 ### Breath of fresh air: a bright looking future
 * React was made popular due to its friendliness
