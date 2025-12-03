@@ -1,20 +1,23 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useRef } from 'react'
 import expensiveCalculation from '../utils'
 
 function MemoizedComponent({ number, counter }) {
     "use no memo";
     // "use memo";
 
-    const [numberOfExpensiveCalculationCalls, setNumberOfExpensiveCalculationCalls] = useState(0);
+    const numberOfInvocationsRef = useRef(0);
 
     const triggerExpensiveCalculation = () => {
-        setNumberOfExpensiveCalculationCalls(numberOfExpensiveCalculationCalls + 1);
-        return expensiveCalculation(number, "MemoizedComponent");
+        numberOfInvocationsRef.current++;
+        return expensiveCalculation(number, "NonMemoizedComponent");
     }
 
     const memoizedValue = useMemo(() => {
-      return triggerExpensiveCalculation()
+      numberOfInvocationsRef.current++;
+      return triggerExpensiveCalculation();
     }, [number])
+
+    console.log("MemoizedComponent", `Total expensive calculations: ${numberOfInvocationsRef.current.toLocaleString()}`)
 
     // const memoizedValue = triggerExpensiveCalculation()
   
@@ -23,7 +26,6 @@ function MemoizedComponent({ number, counter }) {
         <h3>With useMemo</h3>
         <p className="value">Counter: {counter.toLocaleString()}</p>
         <p className="value">Result: {memoizedValue.toLocaleString()}</p>
-        <p className="value"> Invocations: {numberOfExpensiveCalculationCalls.toLocaleString()}</p>
         <p className="note">✅ Only recalculates when number changes</p>
       </div>
     )
