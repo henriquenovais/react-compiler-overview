@@ -12,6 +12,11 @@ function MemoizedComponent({ number }) {
 
     // const memoizedValue = expensiveCalculation(number, "MemoizedComponent")
 
+    // const memoizedValue = useMemo(() => {
+    //   console.log(`Here is my counter: ${counter.toLocaleString()}`)
+    //   return expensiveCalculation(number, "MemoizedComponent");
+    // }, [number, counter])
+
     return (
         <div className="demo-box memoized">
         <h3>With useMemo</h3>

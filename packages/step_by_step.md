@@ -8,16 +8,18 @@
 
 > Send feedback form on the cat
 1. Send feedback form on the chat
+2. SPEAK: "Please fill the talk feedback form"
 > Show react compiler configuration
-2. Show vite.config.js
-3. Show annotations
-4. Show react compiler in React Developer Tools
-5. Comment: "This is great for Typescript!"
+3. Show vite.config.js
+3. Show babel.config.js
+4. Show annotations
+5. Show react compiler in React Developer Tools
+6. SPEAK: "This is great for Typescript!"
 > Show application functonality
-6. Trigger "number" increase
-7. Trigger "counter" increase
+7. Trigger "number" increase
+8. Trigger "counter" increase
 > Show application code
-8. Show memoized component
+9. Show memoized component
 10. Show non memoized component
 > Remove useMemo and test app
 11. Remove useMemo from MemoizedComponent
@@ -44,11 +46,18 @@
 29. Show application on trigger "number" increase
 30. Show application on trigger "counter" increase
 > Add useMemo hook again to MemoizedComponent pass counter as props and test app
-31. Add "useMemo" again to MemoizedComponent.jsx
-32. Receive and use "counter" props in NonMemoizedComponent.jsx
-33. Receive and use "counter" props in MemoizedComponent.jsx
-34. Comment: "useMemo hook won't be useless but it will have much more specific usage"
-35. Comment: "React Compiler also is applicable, in the same way, for custom hooks"
+31. Add "useMemo" again to MemoizedComponent.jsx with "counter" on the depedency array
+32; Do code analysis: what is would have happened without the compiler
+33. SPEAK: "useMemo hook won't be useless but it will have much more specific usage"
+34: SPEAK: "useMemo with React Compiler is behaving just like a signal"
+35. SPEAK: brief explanation of what is a signal and how this can be useful for context API architectures
+36. SPEAK: "React Compiler also is applicable, in the same way, for custom hooks"
+37. Please fill the talk feedback form
+> With useMemo hook again to MemoizedComponent do "use no memo" to disable compiler and test app
+38. Use "use memo" on the memoized component
+39. Show application on trigger "number" increase
+40. Show application on trigger "counter" increase
+41. Please fill the talk feedback form
 
 ## Opportunities (back to slides)
 
@@ -76,3 +85,13 @@
         * Smoother React for vanilla and meta-framework projects
     * Better developer experience
         * Less or no useMemo "spam"
+
+## Suggestion: how to safely start adoption
+* Install React Compiler plugin
+* Send "use no memo" accross the application
+    * You can do that with vibe coding relatively safely
+* Test build time
+* Build is fine?
+    * You have React Compiler installed and you are ready to raise performance little by little on every PR!
+* Build is not fine?
+    * Undo React Compiler configuration

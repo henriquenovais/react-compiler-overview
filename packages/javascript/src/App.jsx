@@ -46,8 +46,8 @@ function App() {
       <div className="demo-container">
         <MemoizedComponent number={number} />
         <NonMemoizedComponent number={number} />
-        {/* <MemoizedComponent number={number} counter={counter} />
-        <NonMemoizedComponent number={number} counter={counter} /> */}
+        {/* <MemoizedComponent number={number} counter={counter} /> */}
+        {/* <NonMemoizedComponent number={number} counter={counter} /> */}
       </div>
     </div>
   )
