@@ -5,16 +5,16 @@ import NonMemoizedComponent from './components/NonMemoizedComponent'
 
 function App() {
   "use no memo";
-  
+
   const [number, setNumber] = useState(5)
   const [counter, setCounter] = useState(0)
 
   return (
     <div className="app">
       <div className="header">
-        <h1>useMemo Demonstration</h1>
+        <h1>React Compiler Overview</h1>
         <p className="subtitle">
-          See how useMemo prevents expensive recalculations on every render
+          See how React Compiler can make optimization easier
         </p>
       </div>
 
