@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState } from 'react'
 import './App.css'
 import MemoizedComponent from './components/MemoizedComponent'
 import NonMemoizedComponent from './components/NonMemoizedComponent'
